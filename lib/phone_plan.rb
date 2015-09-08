@@ -1,11 +1,9 @@
 class PhonePlan < Struct.new(:type)
   def cost
-    if type == 'individual'
-      50
-    elsif type == 'family'
-      150
-    elsif type == 'business'
-      500
-    end
+    find_type.return_cost
+  end
+  private
+  def find_type
+    Object.const_get("#{type.capitalize}")
   end
 end
