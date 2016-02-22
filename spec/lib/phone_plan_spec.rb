@@ -20,4 +20,8 @@ describe PhonePlan do
       expect(individual_phone_plan.cost).to eq 500
     end
   end
+  private
+  def phone_plan(type)
+    PhonePlan.new('business')
+  end
 end
